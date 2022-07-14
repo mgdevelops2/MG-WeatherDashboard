@@ -1,7 +1,7 @@
 const APIkey = '84179c6fa0332dafdca89f98a6f69636'; // lets add our API to a variable
 const storedCities = document.querySelector('#storedCities');
 const newBtn = document.createElement('button');
-    $(newBtn).addClass('btn btn-secondary mb-3')
+$(newBtn).addClass('btn btn-secondary mb-3')
 let index = 1;  // creating a global for index 
 
 const getCoordinates = (cityName) => {      //function that runs a fetch() for the url adding in the correct city, and units.
@@ -99,11 +99,22 @@ function init() {
     console.log(storedinput);
     storedinput.forEach(storedinput => {
         var listItem = document.createElement('button');
-        $(listItem).addClass('btn btn-secondary mb-2');
+        $(listItem).addClass(`storedBtn btn btn-secondary mb-2`);
         listItem.textContent = storedinput;
         storedCities.appendChild(listItem);
-    })
+    }
+    )
 };
 init();
 
 // displays previous data
+const storedBtn = document.querySelector('.storedBtn');
+
+storedBtn.addEventListener('click', function () {
+    // storedBtn.preventDefault();
+    // console.log($(storedBtn).text());
+    var input = $(storedBtn).text();
+    // console.log(input);
+    getCoordinates(input);
+})
+
