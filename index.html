@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/styling/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <link rel="stylesheet" href="./assets/style/style.css">
   <title>What's The Weather?</title>
 </head>
 
@@ -28,74 +28,110 @@
 
         <div class="row">
 
-          <div class="heroLeft col-sm-4 m-auto">
+          <div class="heroLeft col-sm-3 m-auto">
             <div class="card container">
               <div class="input-group mt-3 mb-3">
-                <input type="text" class="form-control" placeholder="Recipient's username"
-                  aria-label="Recipient's username" aria-describedby="button-addon2">
+                <input id="userInput" class="form-control" type="text" placeholder="Search"/>
+                <button id='searchBtn' class=" btn btn-outline-primary">Search</button>
               </div>
-                <button class="searchBtn btn btn-outline-primary">Search</button>
-              <hr class="text-body">
-              <div class="pulledCities">              
+              <hr>
+              <div id="storedCities" class="list-group mb-3">              
               <!-- below is an example of how the button should show up including sll classes.  -->
-              <!-- <a class="btn btn-secondary mt-2 mb-3" href="#" role="button">Atlanta, ATL</a> -->
               </div>
             </div>
           </div>
 
-          <div class="heroRight col-sm-8 m-auto">
+          <div class="heroRight col-sm-9 m-auto">
 
             <div class="card m-auto mt-5 mb-5" style="max-width: 540px;">
               <div class="row g-0">
-
+                <div class="col-md-4 d-flex justify-content-center bg-dark">
+                  <img id="curimg" src="" class="img-fluid rounded-start" alt="weather-icon">
+                </div>
                 <div class="col-md-8">
                   <div class="card-body">
-                    <h5 class="card-title"> destination</h5>
-                    <p>1</p>
-                    <p>2</p>
-                    <p>3</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <h5 class="card-title"><span id="cityName"></span></h5>
+                    <p> temp: <span id="cur-temp"></span></p>
+                    <p> wind: <small id="cur-wind"></small></p>
+                    <p> humidity:  <small id="cur-humidity"></small></p>
+                    <p> UV Index:  <small id="cur-uv"></small></p>
+                    <p class="card-text"><small id="timeStamp" class="text-muted"></small></p>
                   </div>
                 </div>
               </div>
             </div>
+          
+            
 
-
-            <div class="heroBottom">
+            <div class="heroBottom"> 
               <div class="row m-auto mt-5 mb-5">
 
-                <div class="col-sm-3 mt-3 mb-3">
+                <div class="col-sm-2 mt-3 mb-3">
                   <div class="card bg-dark text-light">
-                    <div class="card-body">
-                      <h5 class="card-title">Special title treatment</h5>
-                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <div class="card-body futureCard">
+                      <p class="card-text"><small id="add1"></small></p>
+                      <img id="add1img" src="" alt="weather icon">
+                      <p class="card-text" id="add1temp"></p>
+                      <p>wind:</p>
+                      <p class="card-text"><small id="add1wind"></small></p>
+                      <p>humidity:</p>
+                      <p class="card-text"><small id="add1humidity"></small></p>
                     </div>
                   </div>
                 </div>
 
-                <div class="col-sm-3 mt-3 mb-3">
+                <div class="col-sm-2 mt-3 mb-3">
                   <div class="card bg-dark text-light">
-                    <div class="card-body">
-                      <h5 class="card-title">Special title treatment</h5>
-                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <div class="card-body futureCard">
+                      <p class="card-text"><small id="add2"></small></p>
+                      <img id="add2img" src="" alt="weather icon">
+                      <p class="card-text" id="add2temp"></p>
+                      <p>wind:</p>
+                      <p class="card-text"><small id="add2wind"></small></p>
+                      <p>humidity:</p>
+                      <p class="card-text"><small id="add2humidity"></small></p>
                     </div>
                   </div>
                 </div>
 
-                <div class="col-sm-3 mt-3 mb-3">
+                <div class="col-sm-2 mt-3 mb-3">
                   <div class="card bg-dark text-light">
-                    <div class="card-body">
-                      <h5 class="card-title">Special title treatment</h5>
-                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <div class="card-body futureCard">
+                      <p class="card-text"><small id="add3"></small></p>
+                      <img id="add3img" src="" alt="weather icon">
+                      <p class="card-text" id="add3temp"></p>
+                      <p>wind:</p>
+                      <p class="card-text"><small id="add3wind"></small></p>
+                      <p>humidity:</p>
+                      <p class="card-text"><small id="add3humidity"></small></p>
                     </div>
                   </div>
                 </div>
 
-                <div class="col-sm-3 mt-3 mb-3">
+                <div class="col-sm-2 mt-3 mb-3">
                   <div class="card bg-dark text-light">
-                    <div class="card-body">
-                      <h5 class="card-title">Special title treatment</h5>
-                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <div class="card-body futureCard">
+                      <p class="card-text"><small id="add4"></small></p>
+                      <img id="add4img" src="" alt="weather icon">
+                      <p class="card-text" id="add4temp"></p>
+                      <p>wind:</p>
+                      <p class="card-text"><small  id="add4wind"></small></p>
+                      <p>humidity:</p>
+                      <p class="card-text"><small  id="add4humidity"></small></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-2 mt-3 mb-3">
+                  <div class="card bg-dark text-light">
+                    <div class="card-body futureCard">
+                      <p class="card-text"><small id="add5"></small></p>
+                      <img id="add5img" src="" alt="weather icon">
+                      <p class="card-text" id="add5temp"></p>
+                      <p>wind:</p>
+                      <p class="card-text"><small id="add5wind"></small></p>
+                      <p>humidity:</p>
+                      <p class="card-text"><small id="add5humidity"></small></p>
                     </div>
                   </div>
                 </div>
@@ -112,12 +148,9 @@
 
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-    crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="./assets/scripts/script.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./assets/logic/script.js"></script>
 </body>
 
 </html>
