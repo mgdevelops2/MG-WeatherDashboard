@@ -73,7 +73,7 @@ function futureCards(data) {
     let addhumidity = document.querySelector(`#add${index}humidity`);         // adding humidity for the newday
     addhumidity.textContent = `${data.daily[`${index}`].humidity} %`;
 
-    let imgSrc = document.getElementById(`add${index}img`).setAttribute('src', `http://openweathermap.org/img/w/${data.daily[`${index}`].weather[0].icon}.png`);        // setting an src attribute for the image icon
+    let imgSrc = document.getElementById(`add${index}img`).setAttribute('src', `https://openweathermap.org/img/w/${data.daily[`${index}`].weather[0].icon}.png`);        // setting an src attribute for the image icon
 };
 
 const searchBtn = document.getElementById('searchBtn');
