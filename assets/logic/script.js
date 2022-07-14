@@ -6,7 +6,7 @@ let index = 1;  // creating a global for index
 
 const getCoordinates = (cityName) => {      //function that runs a fetch() for the url adding in the correct city, and units.
 
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIkey}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIkey}`)
         .then(function (data) {
             return data.json()
         })
@@ -22,7 +22,7 @@ function pushCoord(data) {
     let lat = data.coord.lat; // creating variables for lat/lon
     let lon = data.coord.lon;
 
-    fetch(`http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${APIkey}`)
+    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${APIkey}`)
         .then(function (data) {
             return data.json()
         })
@@ -35,7 +35,7 @@ function pushCoord(data) {
 // function to fillScreen w/ the necessary information. 
 const fillScreen = (data) => {
 
-    const curimg = document.querySelector(`#curimg`).setAttribute('src', `http://openweathermap.org/img/w/${data.current.weather[0].icon}.png`);
+    const curimg = document.querySelector(`#curimg`).setAttribute('src', `https://openweathermap.org/img/w/${data.current.weather[0].icon}.png`);
 
     const curTemp = document.querySelector('#cur-temp');     //creating a var for tempText
     curTemp.textContent = `temp: ${data.current.temp} °`;    // adding the current tempinto current folder
