@@ -38,7 +38,7 @@ const fillScreen = (data) => {
     const curimg = document.querySelector(`#curimg`).setAttribute('src', `https://openweathermap.org/img/w/${data.current.weather[0].icon}.png`);
 
     const curTemp = document.querySelector('#cur-temp');     //creating a var for tempText
-    curTemp.textContent = `temp: ${data.current.temp} °`;    // adding the current tempinto current folder
+    curTemp.textContent = `temp: ${data.current.temp} °`;    // adding the current temp into current folder
     // console.log(temptText);
     const curWind = document.querySelector('#cur-wind');
     curWind.textContent = `wind: ${data.current.wind_speed} mph`;
