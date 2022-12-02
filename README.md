@@ -2,7 +2,7 @@
 
 ## Description
 
-This is rudimentary weather dashboard that will run in the browser and feature dynamically updated HTML and CSS, it uses the third-party API from [OpenWeather One Call API](https://openweathermap.org/api/one-call-api) to retrieve data for the city that is input by the user. It uses localStorage to store searched data in buttons.
+TAn interactive application that allows users to look up the weekly weather information in any city around the United States. This information is pulled directly from the Open Weather API. The current day, for the city typed in the search bar or previous city destinations selected, will display the date, icon, temperature, wind speed, humidty and uv index (color coded based on favorable, moderate, or sever uvi values). It uses the third-party API from [OpenWeather One Call API](https://openweathermap.org/api/one-call-api) to retrieve data for the city that is input by the user. It uses localStorage to store searched data in buttons.
 
 ## Table of Contents
 
